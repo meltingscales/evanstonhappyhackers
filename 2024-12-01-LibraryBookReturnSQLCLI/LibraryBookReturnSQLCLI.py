@@ -13,6 +13,11 @@ CREATE TABLE IF NOT EXISTS book
 )
 '''
 
+# TODO: Foreign key demo for next week: How do we check out books?
+# Patron table
+# BookCheckout table fk Patron.id, fk BookStock
+# BookStock table fk Book.id
+
 data_book = (
     ("Where the Wild Things Are", 0, '9780060254926',
      "This iconic story has inspired a movie, an opera, and the imagination of generations. When Max dresses in his wolf suit and causes havoc in the house, his mother sends him to bed. From there, Max sets sail to an island inhabited by the Wild Things, who name him king and share a wild rumpus with him. But then from far away across the world, Max smells good things to eat"),
