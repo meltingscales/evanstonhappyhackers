@@ -98,6 +98,24 @@ def print_all_books():
 
 
 
+def delete_a_book_by_id(book_id):
+
+    q="DELETE FROM book WHERE id = ?"
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute(q, [book_id])
+    conn.commit()
+
+    conn.close()
+
+# example of unit tests
+# delete_a_book_by_id("20")
+# delete_a_book_by_id("21")
+# delete_a_book_by_id("22")
+
+
+
 if __name__ == "__main__":
     # this gets run if the file is executed directly
 
@@ -110,6 +128,7 @@ if __name__ == "__main__":
         print("q - quit")
         print("1 - add book")
         print("2 - print all books")
+        print("3 - delete a book")
         choice = input("Enter a choice: > ")
         small_choice = choice[0].lower()
 
@@ -122,6 +141,11 @@ if __name__ == "__main__":
 
         elif small_choice == '2':
             print_all_books()
+
+        elif small_choice == '3':
+            id_to_delete = input("Enter a book ID to delete > ")
+
+            delete_a_book_by_id(id_to_delete)
 
         else:
             print("Please enter a valid choice.")
