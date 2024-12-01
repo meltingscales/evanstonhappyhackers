@@ -90,5 +90,20 @@ if __name__ == "__main__":
 
     init_db()
 
-    add_book()
+
+    while True:
+        print("q - quit")
+        print("1 - add book")
+        choice = input("Enter a choice: > ")
+        c = choice[0].lower()
+
+        if c == 'q':
+            print("Goodbye :3")
+            exit(0)
+
+        elif c == '1':
+            add_book()
+
+        else:
+            print("Please enter a valid choice.")
 
