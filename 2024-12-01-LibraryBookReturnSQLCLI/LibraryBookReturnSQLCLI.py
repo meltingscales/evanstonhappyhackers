@@ -83,6 +83,21 @@ def add_book():
     conn.close()
 
 
+def print_all_books():
+    q="SELECT * FROM book"
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute(q)
+
+    sqlResult = cursor.fetchall()
+
+    for book in sqlResult:
+        print(f"book id {book[1]} is called {book[0]}")
+
+    conn.close()
+
+
+
 if __name__ == "__main__":
     # this gets run if the file is executed directly
 
@@ -94,15 +109,19 @@ if __name__ == "__main__":
     while True:
         print("q - quit")
         print("1 - add book")
+        print("2 - print all books")
         choice = input("Enter a choice: > ")
-        c = choice[0].lower()
+        small_choice = choice[0].lower()
 
-        if c == 'q':
+        if small_choice == 'q':
             print("Goodbye :3")
             exit(0)
 
-        elif c == '1':
+        elif small_choice == '1':
             add_book()
+
+        elif small_choice == '2':
+            print_all_books()
 
         else:
             print("Please enter a valid choice.")
