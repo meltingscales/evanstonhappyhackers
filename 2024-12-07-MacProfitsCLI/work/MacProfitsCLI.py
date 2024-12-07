@@ -73,6 +73,10 @@ if __name__ == "__main__":
 
         print(df)
 
+        # step 3: for loop: calculate gross profits for each repair and re-store it in each dataframe row. like an excel spreadsheet
+
+        
+
 
     else:
         print("Invalid choice")
