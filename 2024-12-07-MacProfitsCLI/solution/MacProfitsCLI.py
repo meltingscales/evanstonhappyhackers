@@ -80,15 +80,25 @@ def show_summary_table(repair_data, total_profit):
     print("\n--- Repair Summary ---")
     print(repair_data.to_string(index=False))
     print(f"\nTotal Profit after overhead ($): {total_profit:.2f}")
+    print(f"Total cost of repairs ($): {repair_data['MacBook Cost ($)'].sum():.2f}")
+
 
 def plot_results(repair_data):
-    """Plot the profit per repair."""
-    plt.figure(figsize=(8, 6))
-    plt.bar(repair_data["Repair #"], repair_data["Profit ($)"], color="lightgreen", label="Profit per Repair")
+    """Plot the expenses and profit per repair."""
+    repair_data["Expenses ($)"] = repair_data["MacBook Cost ($)"] + repair_data["Repair Cost ($)"]
+
+    plt.figure(figsize=(10, 6))
+    bar_width = 0.35
+    index = repair_data["Repair #"]
+
+    plt.bar(index, repair_data["Expenses ($)"], bar_width, label="Expenses", color="lightcoral")
+    plt.bar(index, repair_data["Profit ($)"], bar_width, bottom=repair_data["Expenses ($)"], label="Profit",
+            color="lightgreen")
+
     plt.axhline(0, color="red", linestyle="--", label="Break-even Line")
-    plt.title("Profit per Repaired MacBook")
+    plt.title("Expenses and Profit per Repaired MacBook")
     plt.xlabel("Repair #")
-    plt.ylabel("Profit ($)")
+    plt.ylabel("Amount ($)")
     plt.legend()
     plt.show()
 
