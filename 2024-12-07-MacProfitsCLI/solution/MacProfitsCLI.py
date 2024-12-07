@@ -15,12 +15,14 @@ class RepairData:
         self.overhead = overhead
 
 def complete(text, state):
+    """Autocomplete file paths for CSV import."""
     return (glob.glob(text+'*')+[None])[state]
 
 readline.set_completer(complete)
 readline.parse_and_bind('tab: complete')
 
 def collect_inputs():
+    """Collect repair data from user input."""
     try:
         num_repairs = int(input("Enter the number of MacBooks repaired: "))
         if (num_repairs <= 0):
@@ -51,6 +53,7 @@ def collect_inputs():
         return None
 
 def import_csv():
+    """Import repair data from a CSV file."""
     csv_file = input("Enter the path to the CSV file: (use TAB for file autocompletion) ")
     if not os.path.exists(csv_file):
         print("File does not exist.")
@@ -63,6 +66,7 @@ def import_csv():
     return repair_data
 
 def calculate_profits(macbook_costs, harvested_part_values, repair_costs, resale_values, overhead):
+    """Calculate profits for each repair and total profit after overhead."""
     profits = [
         (resale - macbook_cost - repair_cost + harvested_value)
         for resale, macbook_cost, repair_cost, harvested_value
@@ -72,11 +76,13 @@ def calculate_profits(macbook_costs, harvested_part_values, repair_costs, resale
     return profits, total_profit
 
 def show_summary_table(repair_data, total_profit):
+    """Display a summary table of repair data and total profit."""
     print("\n--- Repair Summary ---")
     print(repair_data.to_string(index=False))
     print(f"\nTotal Profit after overhead ($): {total_profit:.2f}")
 
 def plot_results(repair_data):
+    """Plot the profit per repair."""
     plt.figure(figsize=(8, 6))
     plt.bar(repair_data["Repair #"], repair_data["Profit ($)"], color="lightgreen", label="Profit per Repair")
     plt.axhline(0, color="red", linestyle="--", label="Break-even Line")
@@ -87,6 +93,7 @@ def plot_results(repair_data):
     plt.show()
 
 def save_data_to_csv(repair_data):
+    """Save repair data to a CSV file."""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"repair_data_{timestamp}.csv"
     repair_data.to_csv(filename, index=False)
@@ -99,6 +106,7 @@ def main():
     print("Choose an option:")
     print("1 - Enter repair data manually")
     print("2 - Import repair data from CSV file")
+    imported_from_csv=False
     choice = input("Enter your choice: ")
 
     if choice == '1':
@@ -115,6 +123,7 @@ def main():
             "Profit ($)": profits
         })
     elif choice == '2':
+        imported_from_csv=True
         repair_data_df = import_csv()
         if repair_data_df is None:
             return
@@ -127,7 +136,10 @@ def main():
 
     show_summary_table(repair_data_df, total_profit)
     plot_results(repair_data_df)
-    save_data_to_csv(repair_data_df)
+
+    # Save data to CSV if not imported from CSV. Don't save imported data to avoid duplication.
+    if imported_from_csv==False:
+        save_data_to_csv(repair_data_df)
 
 if __name__ == "__main__":
     main()
