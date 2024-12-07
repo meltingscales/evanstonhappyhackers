@@ -1,4 +1,10 @@
+# function ideas:
 
+# get_string(message)->string: Ask the user for a message from stdout
+
+# read_csv(path)->DataFrame: Get a file from a path and return a Pandas dataframe.
+
+# unit_tests()->None: Run unit tests on above functions to test them.
 
 if __name__ == "__main__":
 
