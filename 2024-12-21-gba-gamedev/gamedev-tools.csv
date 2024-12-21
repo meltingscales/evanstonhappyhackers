@@ -1,0 +1,10 @@
+Tool,what is it?,url,notes
+GBDK,OLD. Low level,"https://github.com/gbdk-2020/gbdk-2020
+https://user0x7f.itch.io/black-castle
+",works!
+GB Studio,"HIGH level, scratch/unity GB gamedev.",https://www.gbstudio.dev/,
+Devkitpro,tools for compiling various nintendo things,https://devkitpro.org/,
+Devkitarm,compiler for gba,https://devkitpro.org/wiki/devkitARM,
+TONC,OLD,https://gbadev.net/tonc/first.html,
+gbadev,an entire community,https://gbadev.net/,
+butano,Modern and less drag+drop. More like Godot?,https://github.com/GValiente/butano?tab=readme-ov-file,works!
