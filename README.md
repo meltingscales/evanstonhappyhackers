@@ -2,4 +2,5 @@
 
 https://www.youtube.com/results?search_query=evanston+happy+hackers
 
-![Evanston Happy Hackers Flier](./Evanston Happy Hackers Flier.png)
+![Evanston Happy Hackers Flier](./EvanstonHappyHackersFlier.png)
+
