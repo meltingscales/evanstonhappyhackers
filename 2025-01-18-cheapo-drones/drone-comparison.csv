@@ -1,0 +1,11 @@
+Project,Cost,Complexity,Tools needed,Skills,URL,Notes
+DIY Building Block STEM Drone,50,??,??,??,https://www.stacksocial.com/sales/diy-building-block-stem-drone?utm_source=ign.com&utm_medium=referral&utm_campaign=diy-building-block-stem-drone-blue&utm_term=scsf-446464&utm_content=a0x1P000004Yd8QQAS&scsonar=1&aid=a-pp33v98e,??? idk this is like a dead product
+"Crazyflie 2.0, Crazyradio, Flow Deck V2",98,LOW,"Laptop, hands","Have hands, Python",https://www.bitcraze.io/documentation/tutorials/getting-started-with-stem-drone-bundle/,"Age 5+, literally python turtles"
+DJI Ryze Tello (reverse engineered),99,DEPENDS,DEPENDS,DEPENDS,https://store.dji.com/product/tello?vid=38421,"VERY USEFUL. Firmware was reverse engineered and there seems to be a big hacking community around this project :)
+
+Also see https://tellopilots.com/forums/tello-development.8/page-2"
+Pi Zero Drone,340,VERY HIGH,???,???,https://dojofordrones.com/pi-zero-drone/,
+???,,,,,https://www.youtube.com/@carbonaeronautics,
+ESP32-Flight-controller-,???,MEDIUM,"Arduino, multimeter","Programming, laptop",https://github.com/pratikPhadte/ESP32-Flight-controller-/issues/8,
+,>100,HIGH,Soldering,Soldering,https://www.instructables.com/How-to-Build-an-FPV-Drone-under-150/,By “Fungineers”
+tinyhawk2,250,NONE,NONE,FPV flight,,Consumer product
